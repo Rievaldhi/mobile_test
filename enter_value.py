@@ -20,12 +20,11 @@ f_enter_value = driver.find_element(By.ID , 'com.code2lead.kwad:id/Et1').send_ke
 time.sleep(2)
 assert f_enter_value.text == content1
 btn_submit_value = driver.find_element(By.ID , 'com.code2lead.kwad:id/Btn1').click()
+
+directory = '%s/screenshot-files/' % os.getcwd()
+file_name = 'screenshot_enter_value.png'
+driver.save_screenshot(directory + file_name)
+
 time.sleep(5)
 print('Success!')
 driver.close_app()
-
-# time_ss = time.strftime("%m/%d/%Y, %H:%M:%S")
-# is_name = 'screenshot'
-# file_name = is_name+time_ss
-
-# driver.save_screenshot('C:/Users/valre/Documents/bg-uno/screenshot-files/'+file_name+'.png')

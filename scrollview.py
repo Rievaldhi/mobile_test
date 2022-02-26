@@ -21,12 +21,23 @@ txt_alert_msg = driver.find_element(By.ID , 'android:id/message').text
 assert txt_alert_msg == "Are you sure? what to close"
 btn_alert_no = driver.find_element(By.ID , 'android:id/button2').click()
 driver.swipe(1000, 1600, 1000, 850, 500)
-btn_16 = driver.find_element(By.XPATH, "//android.widget.Button[@text=\"BUTTON16\"]").is_displayed()
-btn_16 = driver.find_element(By.XPATH, "//android.widget.Button[@text=\"BUTTON16\"]").click()
+btn_16 = driver.find_element(By.XPATH, "//android.widget.Button[@text=\"BUTTON16\"]")
+
+if btn_16.is_displayed():
+    btn_16 = driver.find_element(By.XPATH, "//android.widget.Button[@text=\"BUTTON16\"]").click()
+else:
+    driver.swipe(1000, 1600, 1000, 850, 500)   
+    btn_16 = driver.find_element(By.XPATH, "//android.widget.Button[@text=\"BUTTON16\"]").click()
+     
 txt_alert = driver.find_element(By.ID , 'com.code2lead.kwad:id/alertTitle').is_displayed()
 txt_alert_msg = driver.find_element(By.ID , 'android:id/message').text
 assert txt_alert_msg == "Are you sure? what to close"
 btn_alert_yes = driver.find_element(By.ID , 'android:id/button1').click()
+time.sleep(2)
+
+directory = '%s/screenshot-files/' % os.getcwd()
+file_name = 'screenshot_scrollview.png'
+driver.save_screenshot(directory + file_name)
 
 time.sleep(2)
 print('Success!')

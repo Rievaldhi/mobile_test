@@ -37,6 +37,11 @@ assert result_email == "Email: " + content_email
 assert result_pass == "Password: " + content_address
 assert result_mobile == "Mobile: " + content_mobNo
 
+
+directory = '%s/screenshot-files/' % os.getcwd()
+file_name = 'screenshot_contact_us_form.png'
+driver.save_screenshot(directory + file_name)
+
 time.sleep(2)
 print('Success!')
 driver.close_app()
