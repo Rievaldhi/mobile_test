@@ -16,11 +16,11 @@ driver.implicitly_wait(10)
 driver.swipe(1000, 1600, 1000, 850, 500)
 btn_time = driver.find_element(By.ID , 'com.code2lead.kwad:id/Time').click()
 #select hours
-hours_picker = driver.find_element(By.ID , 'android:id/hours').is_displayed()
+hours_select = driver.find_element(By.ID , 'android:id/hours').is_displayed()
 hours_10 = driver.find_element(By.ACCESSIBILITY_ID , '10').click()
-minutes_picker = driver.find_element(By.ID , 'android:id/minutes').click()
+minutes_select = driver.find_element(By.ID , 'android:id/minutes').click()
 minutes_25 = driver.find_element(By.ACCESSIBILITY_ID , '25').click()
-pm_picker = driver.find_element(By.ID , 'android:id/pm_label').click()
+pm_select = driver.find_element(By.ID , 'android:id/pm_label').click()
 
 directory = '%s/screenshot-files/' % os.getcwd()
 file_name = 'screenshot_time.png'
